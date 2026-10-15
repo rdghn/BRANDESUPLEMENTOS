@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
@@ -103,7 +104,7 @@
                 BRANDE <span class="text-brandRed">SUPLEMENTOS</span>
             </h2>
             <p class="text-gray-400 text-xs md:text-sm max-w-2xl mx-auto">
-                Explora los 9 suplementos clave de nuestro catálogo oficial. Toca cualquier producto para conocer su definición completa y beneficios nutricionales.
+                Explora los suplementos clave de nuestro catálogo oficial. Toca cualquier producto para conocer su definición completa y beneficios nutricionales.
             </p>
         </div>
     </section>
@@ -120,8 +121,6 @@
             
             <select id="sortSelect" onchange="renderProducts()" class="w-full sm:w-auto bg-brandDark border border-brandBorder text-xs text-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brandRed">
                 <option value="default">Orden por defecto</option>
-                <option value="price-low">Precio: Menor a Mayor</option>
-                <option value="price-high">Precio: Mayor a Menor</option>
                 <option value="name">Nombre A-Z</option>
             </select>
         </div>
@@ -130,12 +129,12 @@
         <div class="flex justify-between items-center mb-6">
             <h3 class="font-brand text-2xl md:text-3xl font-extrabold uppercase text-white tracking-wide flex items-center gap-2">
                 <span class="w-2 h-6 bg-brandRed inline-block rounded-sm"></span>
-                CATÁLOGO DE PRODUCTOS (<span id="productsCount">9</span>)
+                CATÁLOGO DE PRODUCTOS (<span id="productsCount">10</span>)
             </h3>
             <span class="text-xs text-gray-400 hidden sm:inline">Toca una tarjeta para ver la definición</span>
         </div>
 
-        <!-- PRODUCTS GRID (9 ITEMS) -->
+        <!-- PRODUCTS GRID -->
         <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Dynamic JavaScript Product Cards -->
         </div>
@@ -154,7 +153,7 @@
         </div>
     </div>
 
-    <!-- FLOATING CONTACT BUTTONS (WhatsApp & Instagram) -->
+    <!-- FLOATING CONTACT BUTTONS -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
         <!-- Instagram Floating Button -->
         <a href="https://instagram.com/brande__suplements?cplk=MWwwa2p1OW5vajRhdA%3D%3D" target="_blank" title="Instagram @brande__suplements" class="w-12 h-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full p-3 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
@@ -192,12 +191,10 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // EXACT 9 PRODUCTS LOADED FROM YOUR PDF DOCUMENT WITH CORRECT LOCAL PATHS
         const products = [
             {
                 id: 1,
                 title: "MERVICK COLÁGENO SPORT",
-                price: 37000,
                 badge: "CUIDÁ LO QUE TE MUEVE",
                 image: "./MERVIII.jpeg",
                 definition: "Articulaciones fuertes. Recuperación rápida. Entrená hoy. Cuidate mañana.",
@@ -212,7 +209,6 @@
             {
                 id: 2,
                 title: "NUTRILAB COLLAGEN FLEX",
-                price: 42000,
                 badge: "JOINT & BONE",
                 image: "./FLEXX.jpeg",
                 definition: "Joint and Bone Nutrition. Que el dolor no te frene. Ideal para deportistas, gym, crossfit y 30+ que quieren moverse sin dolor.",
@@ -227,7 +223,6 @@
             {
                 id: 3,
                 title: "BAD MONKEY CITRATO DE MAGNESIO",
-                price: 38000,
                 badge: "SALUD & DESCANSO",
                 image: "./MONNN.jpeg",
                 definition: "El magnesio es el mineral del 'descanso y la recuperación'. El citrato es una de las formas que mejor se absorbe, pega rápido y no cae pesado al estómago.",
@@ -242,7 +237,6 @@
             {
                 id: 4,
                 title: "NUTRILAB EAA NITRO 9",
-                price: 45500,
                 badge: "LOS 9 AMINOÁCIDOS",
                 image: "./EAA.jpeg",
                 definition: "Los 9 aminoácidos esenciales. Recuperación express, protege tu músculo y es el secreto para rendir 2 veces por día.",
@@ -256,7 +250,6 @@
             {
                 id: 5,
                 title: "CREATINA ULTRA TECH",
-                price: 42000,
                 badge: "100% PURA",
                 image: "./ULT.jpeg",
                 definition: "Fuerza. Potencia. Músculo. Creatina Monohidratada pura y micronizada para mejor absorción. El suplemento más estudiado del mundo con resultados desde la semana 1.",
@@ -270,7 +263,6 @@
             {
                 id: 6,
                 title: "CREATINA MICRONIZED ONE FIT",
-                price: 35000,
                 badge: "EL #1 DEL GYM",
                 image: "./ONE.jpeg",
                 definition: "Más fuerza. Más músculo. Más rendimiento. 100% pura y micronizada para mejor absorción. El básico que todo atleta necesita.",
@@ -284,7 +276,6 @@
             {
                 id: 7,
                 title: "WHEY PROTEÍNA",
-                price: 50000,
                 badge: "POST ENTRENO",
                 image: "./WHAY.jpeg",
                 definition: "Construí. Recuperate. Crecé. El post entreno que no puede faltar para nutrir tu músculo inmediatamente tras el esfuerzo.",
@@ -298,7 +289,6 @@
             {
                 id: 8,
                 title: "NUTRILAB POLVOS ISOTÓNICOS / HYDROMAX",
-                price: 3000,
                 badge: "ELECTROLITOS",
                 image: "./NUTRE.jpeg",
                 definition: "Hidratación + Energía + Electrolitos. Repone lo que perdés sudando, evita calambres y te rinde 2 horas más como tu bebida intra-entreno.",
@@ -312,7 +302,6 @@
             {
                 id: 9,
                 title: "QUELO PALEO CHOCOLATE NEGRO Y BLANCO",
-                price: 2000,
                 badge: "SNACK SALUDABLE",
                 image: "./LOPALEO.jpeg",
                 definition: "Gusto rico, cuerpo feliz. Chocolate que te hace bien para sacarte las ganas sin culpa y reemplazar golosinas tradicionales.",
@@ -322,13 +311,21 @@
                     "DIGESTIÓN: Fibra + probióticos que desinflaman.",
                     "SNACK SALUDABLE: Reemplaza golosinas, sin azúcar refinada."
                 ]
+            },
+            {
+                id: 10,
+                title: "WHEY PROTEIN",
+                badge: "PROTEÍNA",
+                image: "./whey_nutrepharma.jpeg",
+                definition: "Suplemento dietario a base de proteínas en polvo. Sabor vainilla. Libre de gluten. Cont. Neto 1KG.",
+                benefits: [
+                    "+ MÚSCULO: Repara y construye masa muscular.",
+                    "SABOR VAINILLA: Delicioso y fácil de tomar.",
+                    "LIBRE DE GLUTEN: Apto para celíacos.",
+                    "CONTENIDO NETO: 1KG."
+                ]
             }
         ];
-
-        // FORMAT ARS CURRENCY
-        function formatMoney(amount) {
-            return '$ ' + Number(amount).toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-        }
 
         // RENDER PRODUCTS GRID
         function renderProducts() {
@@ -336,17 +333,11 @@
             const searchVal = document.getElementById('searchInput').value.toLowerCase();
             const sortVal = document.getElementById('sortSelect').value;
 
-            // Filter Search
             let filtered = products.filter(p => {
                 return p.title.toLowerCase().includes(searchVal) || p.definition.toLowerCase().includes(searchVal);
             });
 
-            // Sort
-            if (sortVal === 'price-low') {
-                filtered.sort((a, b) => a.price - b.price);
-            } else if (sortVal === 'price-high') {
-                filtered.sort((a, b) => b.price - a.price);
-            } else if (sortVal === 'name') {
+            if (sortVal === 'name') {
                 filtered.sort((a, b) => a.title.localeCompare(b.title));
             }
 
@@ -389,11 +380,6 @@
                         </div>
 
                         <div>
-                            <!-- SINGLE PRICE -->
-                            <div class="mb-4">
-                                <span class="text-2xl font-black text-white">${formatMoney(p.price)}</span>
-                            </div>
-
                             <button onclick="openProductModal(${p.id})" class="w-full py-2.5 bg-brandRed hover:bg-brandRedDark text-white text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2">
                                 <i class="fas fa-book-open"></i> Ver Definición
                             </button>
@@ -418,15 +404,10 @@
                     <div class="flex flex-col justify-between">
                         <div>
                             <h2 class="font-brand text-3xl text-white font-extrabold mb-2">${p.title}</h2>
-                            
-                            <!-- SINGLE PRICE DISPLAY IN MODAL -->
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-3xl font-black text-white">${formatMoney(p.price)}</span>
-                                ${p.badge ? `<span class="bg-brandRed/20 text-brandRed text-xs font-bold px-2.5 py-1 rounded border border-brandRed/40">${p.badge}</span>` : ''}
-                            </div>
+                            ${p.badge ? `<span class="bg-brandRed/20 text-brandRed text-xs font-bold px-2.5 py-1 rounded border border-brandRed/40 inline-block mb-4">${p.badge}</span>` : ''}
                         </div>
 
-                        <a href="https://wa.me/5493812234771?text=${encodeURIComponent('Hola BRANDE SUPLEMENTOS! Quisiera consultar acerca de: ' + p.title + ' (' + formatMoney(p.price) + ')')}" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                        <a href="https://wa.me/5493812234771?text=${encodeURIComponent('Hola BRANDE SUPLEMENTOS! Quisiera consultar acerca de: ' + p.title)}" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
                             <i class="fab fa-whatsapp text-lg"></i> Consultar por WhatsApp
                         </a>
                     </div>
@@ -448,6 +429,7 @@
                                 <i class="fas fa-check-circle text-brandRed"></i> Beneficios Principales
                             </h4>
                             <ul class="list-disc list-inside text-xs text-gray-300 space-y-1.5 pl-2">
+                                ${p.benefits.link ? '' : ''}
                                 ${p.benefits.map(b => `<li>${b}</li>`).join('')}
                             </ul>
                         </div>
@@ -462,10 +444,11 @@
             document.getElementById('productModal').classList.add('hidden');
         }
 
-        // INITIALIZE ON LOAD
         window.onload = function() {
             renderProducts();
         };
     </script>
 </body>
 </html>
+
+```
