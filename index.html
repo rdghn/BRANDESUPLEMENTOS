@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
@@ -68,7 +67,7 @@
             <!-- BRAND LOGO & TITLE -->
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded-full border-2 border-brandRed bg-black flex items-center justify-center p-0.5 shadow-lg shadow-brandRed/20 overflow-hidden">
-                    <img id="headerLogoImg" src="brande.png" alt="BRANDE SUPLEMENTOS" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/141414/e50914?text=BRANDE'">
+                    <img id="headerLogoImg" src="./brande.png" alt="BRANDE SUPLEMENTOS" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/141414/e50914?text=BRANDE'">
                 </div>
                 <div>
                     <h1 class="font-brand text-2xl md:text-3xl font-extrabold tracking-wider text-white flex items-center gap-1">
@@ -111,7 +110,7 @@
     <!-- MAIN CONTENT -->
     <main class="container mx-auto px-4 py-8 flex-grow">
 
-        <!-- SEARCH AND SORT BAR (Without Category Buttons) -->
+        <!-- SEARCH AND SORT BAR -->
         <div class="flex flex-col sm:flex-row gap-4 items-center justify-between mb-8 bg-brandCard p-4 rounded-xl border border-brandBorder">
             <div class="relative w-full sm:w-72">
                 <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Buscar suplemento..." class="w-full bg-brandDark border border-brandBorder text-xs text-white rounded-lg pl-8 pr-3 py-2.5 focus:outline-none focus:border-brandRed">
@@ -192,14 +191,14 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // EXACT 9 PRODUCTS LOADED FROM YOUR PDF DOCUMENT
+        // EXACT 9 PRODUCTS LOADED FROM YOUR PDF DOCUMENT WITH CORRECT LOCAL PATHS
         const products = [
             {
                 id: 1,
                 title: "MERVICK COLÁGENO SPORT",
-                price: 37000.000,
+                price: 37000,
                 badge: "CUIDÁ LO QUE TE MUEVE",
-                image: "MERVIII.jpeg",
+                image: "./MERVIII.jpeg",
                 definition: "Articulaciones fuertes. Recuperación rápida. Entrená hoy. Cuidate mañana.",
                 benefits: [
                     "ARTICULACIONES: Cuida rodillas, hombros y tendones.",
@@ -214,7 +213,7 @@
                 title: "NUTRILAB COLLAGEN FLEX",
                 price: 42000,
                 badge: "JOINT & BONE",
-                image: "FLEXX.jpeg",
+                image: "./FLEXX.jpeg",
                 definition: "Joint and Bone Nutrition. Que el dolor no te frene. Ideal para deportistas, gym, crossfit y 30+ que quieren moverse sin dolor.",
                 benefits: [
                     "ARTICULACIONES: Cuida rodillas, tendones y ligamentos.",
@@ -229,7 +228,7 @@
                 title: "BAD MONKEY CITRATO DE MAGNESIO",
                 price: 38000,
                 badge: "SALUD & DESCANSO",
-                image: "MONNN.jpeg",
+                image: "./MONNN.jpeg",
                 definition: "El magnesio es el mineral del 'descanso y la recuperación'. El citrato es una de las formas que mejor se absorbe, pega rápido y no cae pesado al estómago.",
                 benefits: [
                     "MEJOR SUEÑO Y RECUPERACIÓN: Relaja el sistema nervioso. Dormir bien = más músculo y más fuerza.",
@@ -244,7 +243,7 @@
                 title: "NUTRILAB EAA NITRO 9",
                 price: 45500,
                 badge: "LOS 9 AMINOÁCIDOS",
-                image: "EAA.jpeg",
+                image: "./EAA.jpeg",
                 definition: "Los 9 aminoácidos esenciales. Recuperación express, protege tu músculo y es el secreto para rendir 2 veces por día.",
                 benefits: [
                     "+ RECUPERACIÓN: Repara músculo más rápido.",
@@ -258,7 +257,7 @@
                 title: "CREATINA ULTRA TECH",
                 price: 42000,
                 badge: "100% PURA",
-                image: "ULT.jpeg",
+                image: "./ULT.jpeg",
                 definition: "Fuerza. Potencia. Músculo. Creatina Monohidratada pura y micronizada para mejor absorción. El suplemento más estudiado del mundo con resultados desde la semana 1.",
                 benefits: [
                     "+ FUERZA: Levantás más y mejor.",
@@ -272,7 +271,7 @@
                 title: "CREATINA MICRONIZED ONE FIT",
                 price: 35000,
                 badge: "EL #1 DEL GYM",
-                image: "ONE.jpeg",
+                image: "./ONE.jpeg",
                 definition: "Más fuerza. Más músculo. Más rendimiento. 100% pura y micronizada para mejor absorción. El básico que todo atleta necesita.",
                 benefits: [
                     "+ FUERZA: Levantás más peso en el gym.",
@@ -286,7 +285,7 @@
                 title: "WHEY PROTEÍNA",
                 price: 50000,
                 badge: "POST ENTRENO",
-                image: "WHAY.jpeg",
+                image: "./WHAY.jpeg",
                 definition: "Construí. Recuperate. Crecé. El post entreno que no puede faltar para nutrir tu músculo inmediatamente tras el esfuerzo.",
                 benefits: [
                     "+ MÚSCULO: Repara y construye músculo después de entrenar.",
@@ -300,7 +299,7 @@
                 title: "NUTRILAB POLVOS ISOTÓNICOS / HYDROMAX",
                 price: 3000,
                 badge: "ELECTROLITOS",
-                image: "NUTRE.jpeg",
+                image: "./NUTRE.jpeg",
                 definition: "Hidratación + Energía + Electrolitos. Repone lo que perdés sudando, evita calambres y te rinde 2 horas más como tu bebida intra-entreno.",
                 benefits: [
                     "+ HIDRATACIÓN: Repone agua + electrolitos que perdés sudando.",
@@ -312,9 +311,9 @@
             {
                 id: 9,
                 title: "QUELO PALEO CHOCOLATE NEGRO Y BLANCO",
-                price:  2000.000,
+                price: 2000,
                 badge: "SNACK SALUDABLE",
-                image: "LOPALEO.jpeg",
+                image: "./LOPALEO.jpeg",
                 definition: "Gusto rico, cuerpo feliz. Chocolate que te hace bien para sacarte las ganas sin culpa y reemplazar golosinas tradicionales.",
                 benefits: [
                     "ENERGÍA: Maca + superalimentos para rendir sin bajón.",
@@ -469,5 +468,3 @@
     </script>
 </body>
 </html>
-
-```
