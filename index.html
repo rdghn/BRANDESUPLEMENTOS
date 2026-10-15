@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRANDE SUPLEMENTOS - Catálogo Oficial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandRed: '#e50914',
+                        brandRedDark: '#b80710',
+                        brandDark: '#0d0d0d',
+                        brandCard: '#161616',
+                        brandBorder: '#262626'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        brand: ['Oswald', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Oswald:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d0d0d;
+            color: #f3f4f6;
+        }
+        .font-brand {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+        }
+        /* Custom Red Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0d0d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e50914;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b80710;
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-gray-100 min-h-screen flex flex-col justify-between selection:bg-brandRed selection:text-white">
+
+    <!-- MAIN HEADER -->
+    <header class="sticky top-0 z-40 bg-brandDark/95 backdrop-blur-md border-b border-brandBorder shadow-2xl">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            
+            <!-- BRAND LOGO & TITLE -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border-2 border-brandRed bg-black flex items-center justify-center p-0.5 shadow-lg shadow-brandRed/20 overflow-hidden">
+                    <img id="headerLogoImg" src="brande.png" alt="BRANDE SUPLEMENTOS" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/141414/e50914?text=BRANDE'">
+                </div>
+                <div>
+                    <h1 class="font-brand text-2xl md:text-3xl font-extrabold tracking-wider text-white flex items-center gap-1">
+                        BRANDE <span class="text-brandRed">SUPLEMENTOS</span>
+                    </h1>
+                    <p class="text-[10px] text-gray-400 -mt-1 tracking-widest uppercase">Catálogo Oficial & Nutrición</p>
+                </div>
+            </div>
+
+            <!-- NAVIGATION & CONTACT BUTTONS -->
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <!-- Instagram Header Link -->
+                <a href="https://instagram.com/brande__suplements?cplk=MWwwa2p1OW5vajRhdA%3D%3D" target="_blank" title="Síguenos en Instagram" class="w-10 h-10 rounded-lg border border-brandBorder bg-brandCard hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600 hover:border-transparent text-gray-300 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fab fa-instagram text-lg"></i>
+                </a>
+
+                <!-- WhatsApp Header Link -->
+                <a href="https://wa.me/5493812234771" target="_blank" title="Contactar por WhatsApp" class="w-10 h-10 rounded-lg border border-brandBorder bg-brandCard hover:bg-green-600 hover:border-green-600 text-gray-300 hover:text-white flex items-center justify-center transition-all">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="relative bg-gradient-to-b from-black via-brandDark to-brandDark border-b border-brandBorder/50 py-8 md:py-12 overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <span class="text-brandRed text-xs md:text-sm uppercase font-bold tracking-widest px-3 py-1 bg-brandRed/10 rounded-full border border-brandRed/30 inline-block mb-3">
+                Rendimiento & Nutrición Deportiva
+            </span>
+            <h2 class="font-brand text-4xl md:text-6xl font-black text-white uppercase tracking-tight mb-2">
+                BRANDE <span class="text-brandRed">SUPLEMENTOS</span>
+            </h2>
+            <p class="text-gray-400 text-xs md:text-sm max-w-2xl mx-auto">
+                Explora los 9 suplementos clave de nuestro catálogo oficial. Toca cualquier producto para conocer su definición completa y beneficios nutricionales.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-4 py-8 flex-grow">
+
+        <!-- SEARCH AND SORT BAR (Without Category Buttons) -->
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-between mb-8 bg-brandCard p-4 rounded-xl border border-brandBorder">
+            <div class="relative w-full sm:w-72">
+                <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Buscar suplemento..." class="w-full bg-brandDark border border-brandBorder text-xs text-white rounded-lg pl-8 pr-3 py-2.5 focus:outline-none focus:border-brandRed">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-500 text-xs"></i>
+            </div>
+            
+            <select id="sortSelect" onchange="renderProducts()" class="w-full sm:w-auto bg-brandDark border border-brandBorder text-xs text-gray-300 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brandRed">
+                <option value="default">Orden por defecto</option>
+                <option value="price-low">Precio: Menor a Mayor</option>
+                <option value="price-high">Precio: Mayor a Menor</option>
+                <option value="name">Nombre A-Z</option>
+            </select>
+        </div>
+
+        <!-- PRODUCTS TITLE HEADER -->
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="font-brand text-2xl md:text-3xl font-extrabold uppercase text-white tracking-wide flex items-center gap-2">
+                <span class="w-2 h-6 bg-brandRed inline-block rounded-sm"></span>
+                CATÁLOGO DE PRODUCTOS (<span id="productsCount">9</span>)
+            </h3>
+            <span class="text-xs text-gray-400 hidden sm:inline">Toca una tarjeta para ver la definición</span>
+        </div>
+
+        <!-- PRODUCTS GRID (9 ITEMS) -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic JavaScript Product Cards -->
+        </div>
+    </main>
+
+    <!-- PRODUCT DEFINITION MODAL -->
+    <div id="productModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brandCard border border-brandBorder rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 bg-black/60 text-gray-400 hover:text-white w-9 h-9 rounded-full flex items-center justify-center border border-brandBorder transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="p-6 md:p-8" id="modalContent">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING CONTACT BUTTONS (WhatsApp & Instagram) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 items-end">
+        <!-- Instagram Floating Button -->
+        <a href="https://instagram.com/brande__suplements?cplk=MWwwa2p1OW5vajRhdA%3D%3D" target="_blank" title="Instagram @brande__suplements" class="w-12 h-12 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full p-3 shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fab fa-instagram text-2xl"></i>
+        </a>
+
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/5493812234771" target="_blank" title="Contactar por WhatsApp" class="group flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-2xl transition-all hover:scale-105">
+            <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
+                <i class="fab fa-whatsapp text-xl"></i>
+            </div>
+            <span class="text-xs font-bold whitespace-nowrap pr-2 hidden sm:inline">Chatea con nosotros</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-brandBorder mt-16 py-8 text-center text-xs text-gray-500">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <span class="font-brand text-xl text-white font-bold">BRANDE <span class="text-brandRed">SUPLEMENTOS</span></span>
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-6 text-gray-400">
+                    <a href="https://wa.me/5493812234771" target="_blank" class="hover:text-brandRed flex items-center gap-1.5 transition-colors">
+                        <i class="fab fa-whatsapp text-green-500 text-base"></i> +54 9 381 223-4771
+                    </a>
+                    <a href="https://instagram.com/brande__suplements?cplk=MWwwa2p1OW5vajRhdA%3D%3D" target="_blank" class="hover:text-brandRed flex items-center gap-1.5 transition-colors">
+                        <i class="fab fa-instagram text-pink-500 text-base"></i> @brande__suplements
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2026 BRANDE SUPLEMENTOS. Catálogo Oficial de Nutrición y Rendimiento.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // EXACT 9 PRODUCTS LOADED FROM YOUR PDF DOCUMENT
+        const products = [
+            {
+                id: 1,
+                title: "MERVICK COLÁGENO SPORT",
+                price: 37000.000,
+                badge: "CUIDÁ LO QUE TE MUEVE",
+                image: "MERVIII.JPEG",
+                definition: "Articulaciones fuertes. Recuperación rápida. Entrená hoy. Cuidate mañana.",
+                benefits: [
+                    "ARTICULACIONES: Cuida rodillas, hombros y tendones.",
+                    "- DOLORES: Menos molestias post entreno.",
+                    "+ RECUPERACIÓN: Volvés más rápido al gym.",
+                    "HUESOS + PIEL: Con Vit D3, Q10 y Ácido Hialurónico.",
+                    "10g Colágeno por porción con Vit C + D3 + Q10."
+                ]
+            },
+            {
+                id: 2,
+                title: "NUTRILAB COLLAGEN FLEX",
+                price: 42000,
+                badge: "JOINT & BONE",
+                image: "FLEXX.JPEG",
+                definition: "Joint and Bone Nutrition. Que el dolor no te frene. Ideal para deportistas, gym, crossfit y 30+ que quieren moverse sin dolor.",
+                benefits: [
+                    "ARTICULACIONES: Cuida rodillas, tendones y ligamentos.",
+                    "- DOLORES: Menos molestias por entreno o edad.",
+                    "HUESOS + PIEL: 10g Colágeno + Vit A-B-C-D-E.",
+                    "ANTI-INFLAMATORIO: Glicina + Cúrcuma para recuperarte mejor.",
+                    "Bonus: Trae Zinc y Magnesio para recuperación muscular."
+                ]
+            },
+            {
+                id: 3,
+                title: "BAD MONKEY CITRATO DE MAGNESIO",
+                price: 38000,
+                badge: "SALUD & DESCANSO",
+                image: "MONNN.JPEG",
+                definition: "El magnesio es el mineral del 'descanso y la recuperación'. El citrato es una de las formas que mejor se absorbe, pega rápido y no cae pesado al estómago.",
+                benefits: [
+                    "MEJOR SUEÑO Y RECUPERACIÓN: Relaja el sistema nervioso. Dormir bien = más músculo y más fuerza.",
+                    "ANTI-CALAMBRES: Regula la contracción muscular. Clave si hacés gym, running o fútbol.",
+                    "MENOS ESTRÉS Y ANSIEDAD: Baja el cortisol. Te da calma y foco.",
+                    "ENERGÍA: Participa en +300 reacciones del cuerpo para producir energía. Adiós cansancio.",
+                    "DIGESTIÓN: El citrato tiene efecto laxante suave. Ayuda si sos de estar constipado."
+                ]
+            },
+            {
+                id: 4,
+                title: "NUTRILAB EAA NITRO 9",
+                price: 45500,
+                badge: "LOS 9 AMINOÁCIDOS",
+                image: "EAA.JPEG",
+                definition: "Los 9 aminoácidos esenciales. Recuperación express, protege tu músculo y es el secreto para rendir 2 veces por día.",
+                benefits: [
+                    "+ RECUPERACIÓN: Repara músculo más rápido.",
+                    "ANTI-CATABÓLICO: No perdés músculo entrenando.",
+                    "+ ENERGÍA: Aguantás más en el entreno.",
+                    "HIDRATACIÓN: Evita calambres y bajones."
+                ]
+            },
+            {
+                id: 5,
+                title: "CREATINA ULTRA TECH",
+                price: 42000,
+                badge: "100% PURA",
+                image: "ULT.JPEG",
+                definition: "Fuerza. Potencia. Músculo. Creatina Monohidratada pura y micronizada para mejor absorción. El suplemento más estudiado del mundo con resultados desde la semana 1.",
+                benefits: [
+                    "+ FUERZA: Levantás más y mejor.",
+                    "+ POTENCIA: Más explosivo en gym, fútbol, running.",
+                    "+ MÚSCULO: Aumenta volumen y masa magra.",
+                    "+ RENDIMIENTO: Aguantás más series sin fatigarte."
+                ]
+            },
+            {
+                id: 6,
+                title: "CREATINA MICRONIZED ONE FIT",
+                price: 35000,
+                badge: "EL #1 DEL GYM",
+                image: "ONE.JPEG",
+                definition: "Más fuerza. Más músculo. Más rendimiento. 100% pura y micronizada para mejor absorción. El básico que todo atleta necesita.",
+                benefits: [
+                    "+ FUERZA: Levantás más peso en el gym.",
+                    "+ POTENCIA: Más explosividad en sprints, saltos, fútbol.",
+                    "+ MÚSCULO: Da volumen y ayuda a que crezca.",
+                    "+ RESISTENCIA: Aguantás 1-2 reps más con resultados reales."
+                ]
+            },
+            {
+                id: 7,
+                title: "WHEY PROTEÍNA",
+                price: 50000,
+                badge: "POST ENTRENO",
+                image: "WHAY.JPEG",
+                definition: "Construí. Recuperate. Crecé. El post entreno que no puede faltar para nutrir tu músculo inmediatamente tras el esfuerzo.",
+                benefits: [
+                    "+ MÚSCULO: Repara y construye músculo después de entrenar.",
+                    "+ RECUPERACIÓN: Menos dolor al otro día.",
+                    "+ PROTEÍNA RÁPIDA: 1 scoop = 20-25g de proteína en 30 segundos.",
+                    "SACIEDAD: Te ayuda a no picotear y a definir."
+                ]
+            },
+            {
+                id: 8,
+                title: "NUTRILAB POLVOS ISOTÓNICOS / HYDROMAX",
+                price: 3000,
+                badge: "ELECTROLITOS",
+                image: "NUTRE.JPEG",
+                definition: "Hidratación + Energía + Electrolitos. Repone lo que perdés sudando, evita calambres y te rinde 2 horas más como tu bebida intra-entreno.",
+                benefits: [
+                    "+ HIDRATACIÓN: Repone agua + electrolitos que perdés sudando.",
+                    "+ ENERGÍA: Tiene carbohidratos para rendir más.",
+                    "ANTI-CALAMBRES: Aporta Sodio, Potasio y Magnesio.",
+                    "RECUPERACIÓN: Volvés más rápido al otro entreno."
+                ]
+            },
+            {
+                id: 9,
+                title: "QUELO PALEO CHOCOLATE NEGRO Y BLANCO",
+                price:  2000.000,
+                badge: "SNACK SALUDABLE",
+                image: "LOPALEO.JPEG",
+                definition: "Gusto rico, cuerpo feliz. Chocolate que te hace bien para sacarte las ganas sin culpa y reemplazar golosinas tradicionales.",
+                benefits: [
+                    "ENERGÍA: Maca + superalimentos para rendir sin bajón.",
+                    "ANTIOXIDANTES: Cacao 70% + frutos rojos anti-edad.",
+                    "DIGESTIÓN: Fibra + probióticos que desinflaman.",
+                    "SNACK SALUDABLE: Reemplaza golosinas, sin azúcar refinada."
+                ]
+            }
+        ];
+
+        // FORMAT ARS CURRENCY
+        function formatMoney(amount) {
+            return '$ ' + Number(amount).toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        // RENDER PRODUCTS GRID
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            const sortVal = document.getElementById('sortSelect').value;
+
+            // Filter Search
+            let filtered = products.filter(p => {
+                return p.title.toLowerCase().includes(searchVal) || p.definition.toLowerCase().includes(searchVal);
+            });
+
+            // Sort
+            if (sortVal === 'price-low') {
+                filtered.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-high') {
+                filtered.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'name') {
+                filtered.sort((a, b) => a.title.localeCompare(b.title));
+            }
+
+            document.getElementById('productsCount').innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-gray-500">
+                        <i class="fas fa-search-minus text-4xl mb-3 block"></i>
+                        No se encontraron suplementos para esta búsqueda.
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="bg-brandCard border border-brandBorder rounded-2xl overflow-hidden shadow-lg hover:border-brandRed/60 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative bg-black/40 p-4 cursor-pointer overflow-hidden flex items-center justify-center h-60" onclick="openProductModal(${p.id})">
+                        ${p.badge ? `
+                            <span class="absolute top-3 left-3 bg-brandRed text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-md shadow-md z-10">
+                                ${p.badge}
+                            </span>
+                        ` : ''}
+                        <img src="${p.image}" alt="${p.title}" class="max-h-52 object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/400x400/141414/e50914?text=BRANDE+SUPLEMENTOS'">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-brandRed text-white text-xs font-bold px-4 py-2 rounded-lg shadow-lg flex items-center gap-1">
+                                <i class="fas fa-eye"></i> Ver Definición
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex flex-col flex-grow justify-between border-t border-brandBorder/40">
+                        <div>
+                            <h4 class="font-brand text-xl text-white font-bold leading-tight mb-2 group-hover:text-brandRed transition-colors cursor-pointer" onclick="openProductModal(${p.id})">
+                                ${p.title}
+                            </h4>
+                            <p class="text-xs text-gray-400 line-clamp-2 mb-4">
+                                ${p.definition}
+                            </p>
+                        </div>
+
+                        <div>
+                            <!-- SINGLE PRICE -->
+                            <div class="mb-4">
+                                <span class="text-2xl font-black text-white">${formatMoney(p.price)}</span>
+                            </div>
+
+                            <button onclick="openProductModal(${p.id})" class="w-full py-2.5 bg-brandRed hover:bg-brandRedDark text-white text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-book-open"></i> Ver Definición
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // PRODUCT MODAL DETAILS
+        function openProductModal(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-black/50 p-4 rounded-xl flex items-center justify-center border border-brandBorder">
+                        <img src="${p.image}" alt="${p.title}" class="max-h-64 object-contain" onerror="this.src='https://placehold.co/400x400/141414/e50914?text=BRANDE+SUPLEMENTOS'">
+                    </div>
+                    
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h2 class="font-brand text-3xl text-white font-extrabold mb-2">${p.title}</h2>
+                            
+                            <!-- SINGLE PRICE DISPLAY IN MODAL -->
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-3xl font-black text-white">${formatMoney(p.price)}</span>
+                                ${p.badge ? `<span class="bg-brandRed/20 text-brandRed text-xs font-bold px-2.5 py-1 rounded border border-brandRed/40">${p.badge}</span>` : ''}
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/5493812234771?text=${encodeURIComponent('Hola BRANDE SUPLEMENTOS! Quisiera consultar acerca de: ' + p.title + ' (' + formatMoney(p.price) + ')')}" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-brandBorder space-y-4">
+                    <div>
+                        <h4 class="font-brand text-xl text-white font-bold flex items-center gap-2 mb-2">
+                            <i class="fas fa-info-circle text-brandRed"></i> ¿Para qué sirve? (Definición)
+                        </h4>
+                        <p class="text-xs md:text-sm text-gray-300 leading-relaxed bg-brandDark/60 p-4 rounded-xl border border-brandBorder/60">
+                            ${p.definition}
+                        </p>
+                    </div>
+
+                    ${p.benefits && p.benefits.length ? `
+                        <div>
+                            <h4 class="font-brand text-lg text-white font-bold flex items-center gap-2 mb-2">
+                                <i class="fas fa-check-circle text-brandRed"></i> Beneficios Principales
+                            </h4>
+                            <ul class="list-disc list-inside text-xs text-gray-300 space-y-1.5 pl-2">
+                                ${p.benefits.map(b => `<li>${b}</li>`).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        // INITIALIZE ON LOAD
+        window.onload = function() {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
+
+```
